@@ -1,5 +1,4 @@
 import groq from 'groq';
-import axios from 'axios';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import ReactSwipe from 'react-swipe';
@@ -43,6 +42,29 @@ function Index(props) {
       description: 'Your phone is the only thing you need',
     }];
 
+  const serviceList = [
+    {
+      img: '/images/service/g.png',
+      title: 'Industry term',
+      description: '"Guestlist".',
+    },
+    {
+      img: '/images/service/r.png',
+      title: 'Industry term',
+      description: '"Table Booking"',
+    },
+    {
+      img: '/images/service/t.png',
+      title: 'Industry term',
+      description: '"Guestlist".',
+    },
+    {
+      img: '/images/service/v.png',
+      title: 'Industry term',
+      description: '"Guestlist".',
+    },
+  ];
+
 
   const startSlide = 0;
   const swipeOptions = {
@@ -59,22 +81,6 @@ function Index(props) {
       setIndex(index);
 
     },
-  };
-
-
-  const handleContact = () => {
-    console.log('handleContact');
-    axios
-      .post('/api/contact', {
-        firstName: 'Fred',
-        lastName: 'Flintstone',
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   return (
@@ -154,26 +160,14 @@ function Index(props) {
         <div className='md:container mx-auto justify-between flex  flex-col justify-center text-center space-y-24 py-8'>
           <div className='text-4xl font-bold'>Our Services</div>
           <div className='flex justify-around md:flex-row flex-col md:space-y-0 space-y-8'>
-            <div className='text-center'>
-              <Image src='/images/service/g.png' width={350} height={350} />
-              <div className='mt-8'>Industry term</div>
-              <div className='text-green font-bold'>"Guestlist".</div>
-            </div>
-            <div>
-              <Image src='/images/service/r.png' width={350} height={350} />
-              <div className='mt-8'>Industry term</div>
-              <div className='text-green font-bold'>"Table Booking"</div>
-            </div>
-            <div>
-              <Image src='/images/service/t.png' width={350} height={350} />
-              <div className='mt-8'>Industry term</div>
-              <div className='text-green font-bold'>"Guestlist".</div>
-            </div>
-            <div>
-              <Image src='/images/service/v.png' width={350} height={350} />
-              <div className='mt-8'>Industry term</div>
-              <div className='text-green font-bold'>"Guestlist".</div>
-            </div>
+            {
+              serviceList.map(({ img, title, description }, index) => (
+                <div className='text-center' key={index}>
+                  <Image src={img} width={350} height={350} />
+                  <div className='mt-8'>{title}</div>
+                  <div className='text-green font-bold'>{description}</div>
+                </div>))
+            }
           </div>
         </div>
       </div>

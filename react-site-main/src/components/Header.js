@@ -5,6 +5,36 @@ import cn from 'classnames';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const linkList = [
+    {
+      title: 'The User App',
+      link: '/',
+    },
+    {
+      title: 'Services',
+      link: '/',
+    },
+    {
+      title: 'Dashboard & Digiboard',
+      link: '/dashboard',
+    },
+    {
+      title: 'User Features',
+      link: '/',
+    },
+    {
+      title: 'Download our App',
+      link: '/',
+    },
+    {
+      title: 'Contact Us',
+      link: '/contact',
+    },
+    {
+      title: 'FAQs',
+      link: '/question',
+    },
+  ];
 
   return (
     <header className=' bg-black text-white h-16 py-12 md:px-24 px-8' role='navigation' aria-label='main navigation'>
@@ -25,29 +55,16 @@ const Header = () => {
             className={cn('absolute mt-14 md:w-1/4 w-screen right-0 bg-page-black ring-1 ring-black ring-opacity-5 focus:outline-none z-50',
               showMenu ? 'block' : 'hidden',
             )}>
-            <div className='py-1 text-white  text-center md:py-56 py-36 space-y-8'>
-              <div>
-                <Link href='/' className='block px-4 py-2  hover:text-gray-300'>The User App</Link>
-              </div>
-              <div>
-                <Link href='/' className='block px-4 py-2  hover:text-gray-300'>Services</Link>
-              </div>
-              <div>
-                <Link href='/dashboard' className='block px-4 py-2  hover:text-gray-300'>Dashboard & Digiboard</Link>
-              </div>
-              <div>
-                <Link href='/' className='block px-4 py-2  hover:text-gray-300'>User Features</Link>
-              </div>
-              <div>
-                <Link href='/' className='block px-4 py-2  hover:text-gray-300'>Download our App</Link>
-              </div>
-              <div>
-                <Link href='/contact' className='block px-4 py-2  hover:text-gray-300'>Contact Us</Link>
-              </div>
-              <div>
-                <Link href='/question' className='block px-4 py-2  hover:text-gray-300'>FAQs</Link>
-              </div>
+            <div className='pt-12 text-white  text-center md:py-48 py-36 space-y-9'>
+              {
+                linkList.map(({ title, link }, index) => (
 
+                    <Link href={link} key={index}>
+                      <div  className='block px-4 py-2 hover:text-gray-300 cursor-pointer text-lg'>{title}</div>
+                    </Link>
+                  ),
+                )
+              }
             </div>
           </div>
 
