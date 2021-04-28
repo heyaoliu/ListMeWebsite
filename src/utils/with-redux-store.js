@@ -45,6 +45,7 @@ export default (App) => {
     }
 
     render() {
+      // eslint-disable-next-line react/jsx-props-no-spreading
       return <App {...this.props} reduxStore={this.reduxStore} />;
     }
   };

@@ -29,5 +29,15 @@
   },
   "globals": {
     "window": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      },
+      "alias": [
+        ["@components", ["./src/components"]]
+      ]
+    }
   }
 }

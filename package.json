@@ -11,7 +11,7 @@
     "build": "next build",
     "export": "yarn run build && next export",
     "deploy": "now --prod",
-    "lint": "eslint --fix --ext .jsx,.js src/*.js src/**/*.js",
+    "lint": "eslint --fix --ext .jsx,.js src/**/*.js",
     "lint-two": "NODE_ENV=production lint-staged"
   },
   "dependencies": {
@@ -21,7 +21,9 @@
     "@tailwindcss/typography": "^0.4.0",
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.21.0",
+    "classnames": "2.2.6",
     "easy-peasy": "^4.0.1",
+    "eslint-import-resolver-alias": "^1.1.2",
     "formik": "^2.2.5",
     "groq": "^2.0.9",
     "imagemin-mozjpeg": "^9.0.0",
@@ -45,7 +47,6 @@
   "devDependencies": {
     "autoprefixer": "10.2.4",
     "babel-eslint": "^10.1.0",
-    "classnames": "2.2.6",
     "cross-env": "^7.0.3",
     "eslint": "^7.13.0",
     "eslint-config-airbnb": "^18.2.1",
